@@ -15,13 +15,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include 
+from django.urls import path, include
+from django.http import HttpResponse
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+# Simple homepage view
+def home(request):
+    return HttpResponse("Welcome to Hospital System!")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('hospital.urls')),  
-    path('mpesa/',include('mpesa_stk.urls'))
+    path('api/', include('hospital.urls')),
+    path('mpesa/', include('mpesa_stk.urls')),
+    path('', home),  # Homepage route
 ]
+
+# Add static files URL patterns
 urlpatterns += staticfiles_urlpatterns()
+
+
 
