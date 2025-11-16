@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -88,15 +89,9 @@ WSGI_APPLICATION = 'hospital_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  
-        'NAME': 'hospitaldb',                      
-        'USER': 'userhospital',                    
-        'PASSWORD': 'maina05',                     
-        'HOST': 'localhost',                       
-        'PORT': '5432',                            
-    }
+
+DATABASES ={
+    'default':dj_database_url.parse("postgresql://caltest_7pdj_user:RWxB3zKsoeP7IZTzdESp4Ejcs9ERAbSX@dpg-d48b7omr433s739vmjj0-a.oregon-postgres.render.com/caltest_7pdj")
 }
 
 
